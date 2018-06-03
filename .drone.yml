@@ -1,0 +1,11 @@
+pipeline:
+  test:
+    image: ownport/pypgsqlstore-dev
+    commands:
+    - make clean
+    - pip3 install -e .
+    - make test-in-droneci
+    - make post-clean
+    when:
+      event:
+      - test 
